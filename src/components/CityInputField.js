@@ -1,11 +1,11 @@
 import React from "react";
 
-const CityInput = ({ cityInput, handleCityInput }) => {
+const CityInputField = ({ cityInput, handleCityInput }) => {
 	return (
 		<div>
 			<input value={cityInput} onChange={handleCityInput} />
 		</div>
-		)
-}
+	);
+};
 
-export default CityInput
+export default CityInputField;

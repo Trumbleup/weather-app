@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import CityInputField from "./components/CityInputField";
+import WeatherDisplay from "./components/WeatherDisplay";
 import cityList from "./city.list.json";
 
 function App() {
-  const [weather, setWeather] = useState({});
+  const [weatherInfo, setWeatherInfo] = useState(null);
   const [cityID, setCityID] = useState(4699066);
   const [cityInput, setLocationInput] = useState("");
   const fetchWeather = async (id) => {
@@ -19,11 +20,11 @@ function App() {
     }
   };
 
-  const getWeather = (id) => {
+  const handleWeather = (id) => {
     if (!id) {
       return;
     } else {
-      fetchWeather(id).then((res) => console.log(res));
+      fetchWeather(id).then((res) => setWeatherInfo(res));
     }
   };
 
@@ -35,20 +36,16 @@ function App() {
     const filteredCity = cityList.filter((cityObj) => {
       const jsonCityName = cityObj.name.toLowerCase();
       let jsonCityTerritory;
-      if (cityObj.state != "") {
+      if (cityObj.state !== "") {
         jsonCityTerritory = cityObj.state.toLowerCase();
       } else {
         jsonCityTerritory = cityObj.country.toLowerCase();
       }
-      return cityName == jsonCityName && cityTerritory == jsonCityTerritory;
+      return cityName === jsonCityName && cityTerritory === jsonCityTerritory;
     });
     if (filteredCity.length > 0) {
       return filteredCity[0].id;
     }
-  };
-
-  const handleCityInput = (e) => {
-    setLocationInput(e.target.value);
   };
 
   const handleCityID = (id) => {
@@ -59,13 +56,21 @@ function App() {
     }
   };
 
+  const handleCityInput = (e) => {
+    setLocationInput(e.target.value);
+  };
+
   useEffect(() => {
     handleCityID(getCityID(cityInput));
-    getWeather(cityID);
-  }, [cityInput, cityID]);
+  }, [cityInput]);
+
+  useEffect(() => {
+    handleWeather(cityID);
+  }, [cityID]);
   return (
     <div className="App">
       <CityInputField cityInput={cityInput} handleCityInput={handleCityInput} />
+      <WeatherDisplay weatherInfo={weatherInfo} />
     </div>
   );
 }
