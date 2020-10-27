@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "./components/Navbar";
 import CityInputField from "./components/CityInputField";
 import WeatherDisplay from "./components/WeatherDisplay";
 import cityList from "./city.list.json";
+import "./App.css";
 
 function App() {
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [cityID, setCityID] = useState(4699066);
   const [cityInput, setLocationInput] = useState("");
+  const [temperatureUnit, setTemperatureUnit] = useState("F");
   const fetchWeather = async (id) => {
     try {
       const response = await fetch(
@@ -60,6 +63,14 @@ function App() {
     setLocationInput(e.target.value);
   };
 
+  const handleTemperatureUnit = () => {
+    if (temperatureUnit === "F") {
+      setTemperatureUnit("C");
+    } else {
+      setTemperatureUnit("F");
+    }
+  };
+
   useEffect(() => {
     handleCityID(getCityID(cityInput));
   }, [cityInput]);
@@ -69,8 +80,17 @@ function App() {
   }, [cityID]);
   return (
     <div className="App">
-      <CityInputField cityInput={cityInput} handleCityInput={handleCityInput} />
-      <WeatherDisplay weatherInfo={weatherInfo} />
+      <Navbar handleTemperatureUnit={handleTemperatureUnit} />
+      <div className="main-container">
+        <CityInputField
+          cityInput={cityInput}
+          handleCityInput={handleCityInput}
+        />
+        <WeatherDisplay
+          weatherInfo={weatherInfo}
+          temperatureUnit={temperatureUnit}
+        />
+      </div>
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import React from "react";
+import "./CityInputField.css";
 
 const CityInputField = ({ cityInput, handleCityInput }) => {
 	return (
-		<div>
+		<div className="input-container">
 			<input value={cityInput} onChange={handleCityInput} />
 		</div>
 	);

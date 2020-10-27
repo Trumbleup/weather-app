@@ -1,0 +1,10 @@
+.weather-display {
+	width: 520px;
+	height: 500px;
+	border: 1px solid black;
+}
+
+.image-container img {
+	width: 200px;
+	height: 200px;
+}

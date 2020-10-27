@@ -1,0 +1,15 @@
+#navbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 64px;
+	color: white;
+	background-color: teal;
+	position: relative;
+}
+
+.temperature-toggle {
+	position: absolute;
+	right: 30px;
+}
