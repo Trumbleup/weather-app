@@ -82,7 +82,7 @@ function App() {
   }, [cityID]);
   return (
     <div className="App">
-      <Navbar handleTemperatureUnit={handleTemperatureUnit} />
+      <Navbar temperatureUnit={temperatureUnit} handleTemperatureUnit={handleTemperatureUnit} />
       <div className="main-container">
         <CityInputField
           cityInput={cityInput}

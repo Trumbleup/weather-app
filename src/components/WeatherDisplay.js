@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./WeatherDisplay.css";
 
-const WeatherDisplay = ({ weatherInfo, temperatureUnit}) => {
+const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
 	const [weather, setWeather] = useState(null);
 	const getFahrenheit = (temperature) => {
 		const fahrenheit = temperature * (9 / 5) - 459.67;
@@ -23,30 +23,51 @@ const WeatherDisplay = ({ weatherInfo, temperatureUnit}) => {
 		const country = weather.sys.country;
 		const { feels_like, temp, temp_max, temp_min } = weather.main;
 		const { description, main, icon } = weather.weather[0];
-		console.log(weather);
 		return (
 			<div className="weather-display">
-				<div>City: {name}</div>
-				<div>Country: {country}</div>
-				<div>Weather: {main}</div>
-				<div>Description: {description}</div>
-				{
-				(temperatureUnit === "F") ?
-				<div>
-					<div>Feels Like: {getFahrenheit(feels_like)}&#176; F</div>
-					<div>Temperature: {getFahrenheit(temp)}&#176; F</div>
-					<div>Max Temperature: {getFahrenheit(temp_max)}&#176; F</div>
-					<div>Min Temperature: {getFahrenheit(temp_min)}&#176; F</div>
+				<div className="image-container">
+					<img
+						src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+						alt="Cloudy"
+					/>
 				</div>
-				:
-				<div>
-					<div>Feels Like: {getCelcius(feels_like)}&#176; C</div>
-					<div>Temperature: {getCelcius(temp)}&#176; C</div>
-					<div>Max Temperature: {getCelcius(temp_max)}&#176; C</div>
-					<div>Min Temperature: {getCelcius(temp_min)}&#176; C</div>	
+				<div className="weather-details">
+					<div>City: {name}</div>
+					<div>Country: {country}</div>
+					<div>Weather: {main}</div>
+					<div>Description: {description}</div>
+					{temperatureUnit === "F" ? (
+						<div>
+							<div>
+								Feels Like: {getFahrenheit(feels_like)}&#176; F
+							</div>
+							<div>
+								Temperature: {getFahrenheit(temp)}&#176; F
+							</div>
+							<div>
+								Max Temperature: {getFahrenheit(temp_max)}&#176;
+								F
+							</div>
+							<div>
+								Min Temperature: {getFahrenheit(temp_min)}&#176;
+								F
+							</div>
+						</div>
+					) : (
+						<div>
+							<div>
+								Feels Like: {getCelcius(feels_like)}&#176; C
+							</div>
+							<div>Temperature: {getCelcius(temp)}&#176; C</div>
+							<div>
+								Max Temperature: {getCelcius(temp_max)}&#176; C
+							</div>
+							<div>
+								Min Temperature: {getCelcius(temp_min)}&#176; C
+							</div>
+						</div>
+					)}
 				</div>
-				}
-				<div className="image-container"><img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="Cloudy"/></div>
 			</div>
 		);
 	} else {

@@ -1,11 +1,11 @@
 import React from "react";
 import "./Navbar.css";
 
-const Navbar = ({ handleTemperatureUnit }) => {
+const Navbar = ({ temperatureUnit, handleTemperatureUnit }) => {
 	return (
 		<div id="navbar">
-			<div>WEATHER APP</div>
-			<button onClick={handleTemperatureUnit} className="temperature-toggle">Toggle Temperature</button>
+			<div className="navbar-title">WEATHER APP</div>
+			<button onClick={handleTemperatureUnit} className="temperature-toggle">{(temperatureUnit === "F") ? "Fahrenheit" : "Celcius"}</button>
 		</div>
 	);
 };
