@@ -32,22 +32,24 @@ function App() {
   };
 
   const getCityID = (input) => {
-    const inputFormatted = input.toLowerCase().replace(/\s+/g, "");
+    const inputFormatted = input.toLowerCase();
     const cityStringSplit = inputFormatted.split(",");
-    const cityName = cityStringSplit[0];
-    const cityTerritory = cityStringSplit[1];
-    const filteredCity = cityList.filter((cityObj) => {
-      const jsonCityName = cityObj.name.toLowerCase();
-      let jsonCityTerritory;
-      if (cityObj.state !== "") {
-        jsonCityTerritory = cityObj.state.toLowerCase();
-      } else {
-        jsonCityTerritory = cityObj.country.toLowerCase();
+    if (cityStringSplit.length === 2) {
+      const cityName = cityStringSplit[0].trim();
+      const cityTerritory = cityStringSplit[1].trim();
+      const filteredCity = cityList.filter((cityObj) => {
+        const jsonCityName = cityObj.name.toLowerCase();
+        let jsonCityTerritory;
+        if (cityObj.state !== "") {
+          jsonCityTerritory = cityObj.state.toLowerCase();
+        } else {
+          jsonCityTerritory = cityObj.country.toLowerCase();
+        }
+        return cityName === jsonCityName && cityTerritory === jsonCityTerritory;
+      });
+      if (filteredCity.length > 0) {
+        return filteredCity[0].id;
       }
-      return cityName === jsonCityName && cityTerritory === jsonCityTerritory;
-    });
-    if (filteredCity.length > 0) {
-      return filteredCity[0].id;
     }
   };
 
