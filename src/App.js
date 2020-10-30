@@ -74,7 +74,8 @@ function App() {
   };
 
   useEffect(() => {
-    handleCityID(getCityID(cityInput));
+    const newCityID = getCityID(cityInput)
+    handleCityID(newCityID);
   }, [cityInput]);
 
   useEffect(() => {
@@ -82,7 +83,10 @@ function App() {
   }, [cityID]);
   return (
     <div className="App">
-      <Navbar temperatureUnit={temperatureUnit} handleTemperatureUnit={handleTemperatureUnit} />
+      <Navbar
+        temperatureUnit={temperatureUnit}
+        handleTemperatureUnit={handleTemperatureUnit}
+      />
       <div className="main-container">
         <CityInputField
           cityInput={cityInput}
