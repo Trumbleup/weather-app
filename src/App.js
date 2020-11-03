@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import CityInputField from "./components/CityInputField";
+import WeatherDisplayContainer from "./components/WeatherDisplayContainer";
 import WeatherDisplay from "./components/WeatherDisplay";
+import useWeatherTheme from "./hooks/useWeatherTheme";
 import cityList from "./city.list.json";
 import "./App.css";
 
@@ -74,7 +76,7 @@ function App() {
   };
 
   useEffect(() => {
-    const newCityID = getCityID(cityInput)
+    const newCityID = getCityID(cityInput);
     handleCityID(newCityID);
   }, [cityInput]);
 
@@ -87,16 +89,12 @@ function App() {
         temperatureUnit={temperatureUnit}
         handleTemperatureUnit={handleTemperatureUnit}
       />
-      <div className="main-container">
-        <CityInputField
-          cityInput={cityInput}
-          handleCityInput={handleCityInput}
-        />
-        <WeatherDisplay
-          weatherInfo={weatherInfo}
-          temperatureUnit={temperatureUnit}
-        />
-      </div>
+      <WeatherDisplayContainer
+        cityInput={cityInput}
+        handleCityInput={handleCityInput}
+        weatherInfo={weatherInfo}
+        temperatureUnit={temperatureUnit}
+      />
     </div>
   );
 }
