@@ -6,9 +6,9 @@ import useDayTheme from "../hooks/useDayTheme";
 import "./WeatherDisplayContainer.css";
 
 const WeatherDisplayContainer = ({ cityInput, handleCityInput, weatherInfo, temperatureUnit }) => {
-	const { description, main, icon } = weatherInfo.weather[0];
-	const weatherTheme = useWeatherTheme(icon);
-	const dayTheme = useDayTheme(icon);
+	// const { description, main, icon } = weatherInfo.weather[0];
+	// const weatherTheme = useWeatherTheme(icon);
+	// const dayTheme = useDayTheme(icon);
 	return (
 		<div className="main-container">
 	        <CityInputField
