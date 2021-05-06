@@ -5,7 +5,7 @@ const Navbar = ({ temperatureUnit, handleTemperatureUnit }) => {
 	return (
 		<div id="navbar">
 			<div className="navbar-title">WEATHER APP</div>
-			<button onClick={handleTemperatureUnit} className="temperature-toggle">{(temperatureUnit === "F") ? "Fahrenheit" : "Celcius"}</button>
+			<button onClick={handleTemperatureUnit} className="temperature-toggle">Toggle {(temperatureUnit === "F") ? "Celcius" :"Fahrenheit" }</button>
 		</div>
 	);
 };

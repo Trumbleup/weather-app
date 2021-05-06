@@ -22,14 +22,6 @@ function App() {
     }
   };
 
-  const handleWeather = (id) => {
-    if (!id) {
-      return;
-    } else {
-      fetchWeather(id).then((res) => setWeatherInfo(res));
-    }
-  };
-
   const getCityID = (input) => {
     const inputFormatted = input.toLowerCase();
     const cityStringSplit = inputFormatted.split(",");
@@ -78,6 +70,13 @@ function App() {
   }, [cityInput]);
 
   useEffect(() => {
+    const handleWeather = (id) => {
+      if (!id) {
+        return;
+      } else {
+        fetchWeather(id).then((res) => setWeatherInfo(res));
+      }
+    };
     handleWeather(cityID);
   }, [cityID]);
   return (

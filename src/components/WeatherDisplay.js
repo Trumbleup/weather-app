@@ -14,7 +14,6 @@ const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
 		return roundedCelcius;
 	};
 	useEffect(() => {
-		// const weatherIconElement = document.querySelector(".image-container img");
 		if (weatherInfo) {
 			setWeather(weatherInfo);
 		}
