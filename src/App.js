@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
-import CityInputField from "./components/CityInputField";
 import WeatherDisplayContainer from "./components/WeatherDisplayContainer";
-import WeatherDisplay from "./components/WeatherDisplay";
-import useWeatherTheme from "./hooks/useWeatherTheme";
 import cityList from "./city.list.json";
 import "./App.css";
 
