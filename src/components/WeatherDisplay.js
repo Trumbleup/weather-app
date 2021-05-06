@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import useWeatherTheme from "../hooks/useWeatherTheme";
-import useDayTheme from "../hooks/useDayTheme";
 import "./WeatherDisplay.css";
 
 const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
@@ -24,9 +22,6 @@ const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
 	const country = weather.sys.country;
 	const { feels_like, temp, temp_max, temp_min } = weather.main;
 	const { description, main, icon } = weather.weather[0];
-	const weatherTheme = useWeatherTheme(icon);
-	const dayTheme = useDayTheme(icon);
-	console.log(dayTheme);
 	return (
 		<div className="weather-display">
 			<div className="image-container">

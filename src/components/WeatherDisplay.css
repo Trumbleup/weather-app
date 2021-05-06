@@ -4,25 +4,26 @@
 }
 
 .weather-display {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 520px;
-	height: 560px;
-	border: 1px solid black;
-	font-family: "swansea";
-	font-size: 18px;
-	color: black;
-	background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 520px;
+  height: 560px;
+  border: 1px solid black;
+  margin: 40px;
+  font-family: "swansea";
+  font-size: 18px;
+  color: black;
+  background-color: white;
 }
 
 .weather-details {
-	width: 250px;
-	height: 200px;
+  width: 250px;
+  height: 200px;
 }
 
 .image-container img {
-	width: 250px;
-	height: 250px;
+  width: 250px;
+  height: 250px;
 }
