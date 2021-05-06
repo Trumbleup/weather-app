@@ -14,6 +14,7 @@ const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
 		return roundedCelcius;
 	};
 	useEffect(() => {
+		// const weatherIconElement = document.querySelector(".image-container img");
 		if (weatherInfo) {
 			setWeather(weatherInfo);
 		}
@@ -28,6 +29,7 @@ const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
 				<img
 					src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
 					alt="Cloudy"
+					className="slideUp"
 				/>
 			</div>
 			<div className="weather-details">
