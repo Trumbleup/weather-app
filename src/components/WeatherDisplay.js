@@ -22,6 +22,9 @@ const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
 	const country = weather.sys.country;
 	const { feels_like, temp, temp_max, temp_min } = weather.main;
 	const { description, main, icon } = weather.weather[0];
+	const capitalizedDescription = () => {
+		return description[0].toUpperCase() + description.slice(1).toLowerCase();
+	}
 	return (
 		<div className="weather-display flex">
 			<div className="image-container">
@@ -35,7 +38,7 @@ const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
 				<div><strong>City:</strong> {name}</div>
 				<div><strong>Country:</strong> {country}</div>
 				<div><strong>Weather:</strong> {main}</div>
-				<div><strong>Description:</strong> {description}</div>
+				<div><strong>Description:</strong> {capitalizedDescription()}</div>
 				<div><strong>Feels Like:</strong> {(temperatureUnit === "F") ? getFahrenheit(feels_like) : getCelcius(feels_like)}&#176; {temperatureUnit}</div>
 				<div><strong>Temperature:</strong> {(temperatureUnit === "F") ? getFahrenheit(temp) : getCelcius(feels_like)}&#176; {temperatureUnit}</div>
 				<div><strong>Max Temperature:</strong> {(temperatureUnit === "F") ? getFahrenheit(temp_max) : getCelcius(feels_like)}&#176; {temperatureUnit}</div>
