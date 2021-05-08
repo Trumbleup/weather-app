@@ -1,18 +1,28 @@
 @font-face {
-  font-family: "swansea";
-  src: url("Swansea-q3pd.ttf");
+  font-family: "ralewayregular";
+  src: url("./fonts/raleway-regular-webfont.woff2") format("woff2"),
+    url("./fonts/raleway-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.weather-display {
+.flex {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.flex.align-start {
+  align-items: flex-start;
+}
+
+.weather-display {
   width: 520px;
   height: 560px;
   border: 1px solid black;
   margin: 40px;
-  font-family: "swansea";
+  font-family: "ralewayregular";
   font-size: 18px;
   color: black;
   background-color: white;

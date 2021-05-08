@@ -23,7 +23,7 @@ const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
 	const { feels_like, temp, temp_max, temp_min } = weather.main;
 	const { description, main, icon } = weather.weather[0];
 	return (
-		<div className="weather-display">
+		<div className="weather-display flex">
 			<div className="image-container">
 				<img
 					src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
@@ -31,36 +31,15 @@ const WeatherDisplay = ({ weatherInfo, temperatureUnit }) => {
 					className="slideUp"
 				/>
 			</div>
-			<div className="weather-details">
-				<div>City: {name}</div>
-				<div>Country: {country}</div>
-				<div>Weather: {main}</div>
-				<div>Description: {description}</div>
-				{temperatureUnit === "F" ? (
-					<div>
-						<div>
-							Feels Like: {getFahrenheit(feels_like)}&#176; F
-						</div>
-						<div>Temperature: {getFahrenheit(temp)}&#176; F</div>
-						<div>
-							Max Temperature: {getFahrenheit(temp_max)}&#176; F
-						</div>
-						<div>
-							Min Temperature: {getFahrenheit(temp_min)}&#176; F
-						</div>
-					</div>
-				) : (
-					<div>
-						<div>Feels Like: {getCelcius(feels_like)}&#176; C</div>
-						<div>Temperature: {getCelcius(temp)}&#176; C</div>
-						<div>
-							Max Temperature: {getCelcius(temp_max)}&#176; C
-						</div>
-						<div>
-							Min Temperature: {getCelcius(temp_min)}&#176; C
-						</div>
-					</div>
-				)}
+			<div className="weather-details flex align-start">
+				<div><strong>City:</strong> {name}</div>
+				<div><strong>Country:</strong> {country}</div>
+				<div><strong>Weather:</strong> {main}</div>
+				<div><strong>Description:</strong> {description}</div>
+				<div><strong>Feels Like:</strong> {(temperatureUnit === "F") ? getFahrenheit(feels_like) : getCelcius(feels_like)}&#176; {temperatureUnit}</div>
+				<div><strong>Temperature:</strong> {(temperatureUnit === "F") ? getFahrenheit(temp) : getCelcius(feels_like)}&#176; {temperatureUnit}</div>
+				<div><strong>Max Temperature:</strong> {(temperatureUnit === "F") ? getFahrenheit(temp_max) : getCelcius(feels_like)}&#176; {temperatureUnit}</div>
+				<div><strong>Min Temperature:</strong> {(temperatureUnit === "F") ? getFahrenheit(temp_min) : getCelcius(temp_min)}&#176; {temperatureUnit}</div>
 			</div>
 		</div>
 	);

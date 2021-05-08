@@ -1,6 +1,9 @@
 @font-face {
-  font-family: "superNintendoFont";
-  src: url("SnesItalic-1G9Be.ttf");
+  font-family: "snesitalic";
+  src: url("./fonts/snesitalic-1g9be-webfont.woff2") format("woff2"),
+    url("./fonts/snesitalic-1g9be-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 #navbar {
@@ -15,7 +18,7 @@
 }
 
 .navbar-title {
-  font-family: "superNintendoFont";
+  font-family: "snesitalic";
   font-size: 50px;
 }
 
