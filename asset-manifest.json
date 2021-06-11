@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/weather-app/static/css/main.549892ea.chunk.css",
+    "main.js": "/weather-app/static/js/main.8d29a08b.chunk.js",
+    "main.js.map": "/weather-app/static/js/main.8d29a08b.chunk.js.map",
+    "runtime-main.js": "/weather-app/static/js/runtime-main.e6f382d7.js",
+    "runtime-main.js.map": "/weather-app/static/js/runtime-main.e6f382d7.js.map",
+    "static/js/2.b561443c.chunk.js": "/weather-app/static/js/2.b561443c.chunk.js",
+    "static/js/2.b561443c.chunk.js.map": "/weather-app/static/js/2.b561443c.chunk.js.map",
+    "index.html": "/weather-app/index.html",
+    "precache-manifest.b6bbcbe13e5176fa93757b21c19735f5.js": "/weather-app/precache-manifest.b6bbcbe13e5176fa93757b21c19735f5.js",
+    "service-worker.js": "/weather-app/service-worker.js",
+    "static/css/main.549892ea.chunk.css.map": "/weather-app/static/css/main.549892ea.chunk.css.map",
+    "static/js/2.b561443c.chunk.js.LICENSE.txt": "/weather-app/static/js/2.b561443c.chunk.js.LICENSE.txt",
+    "static/media/WeatherDisplay.css": "/weather-app/static/media/raleway-regular-webfont.4b303357.woff",
+    "static/media/Navbar.css": "/weather-app/static/media/snesitalic-1g9be-webfont.f725b7a8.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e6f382d7.js",
+    "static/js/2.b561443c.chunk.js",
+    "static/css/main.549892ea.chunk.css",
+    "static/js/main.8d29a08b.chunk.js"
+  ]
+}
